@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-coffee": "~0.11.1"
+    "grunt-contrib-coffee": "~0.11.1",
+    "grunt-contrib-jasmine": "~0.7.0"
   }
 }

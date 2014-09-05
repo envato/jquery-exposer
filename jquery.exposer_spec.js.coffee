@@ -1,9 +1,25 @@
 describe 'jQuery.exposer', ->
+  fixture = "
+      <div class='container'>
+        <b class='visible'>foo</b>
+        <b class='visible'>foo</b>
+
+        <b class='hidden'>foo</b>
+        <b class='hidden'>foo</b>
+
+        <div class='exposer-parent'>
+          <a href='#' class='exposer'>Show more</a>
+        </div>
+      </div>
+    "
+
   beforeEach ->
-    loadFixtures 'jquery_exposer_fixture.html'
+    @$fixture = $(fixture).appendTo("body")
     @$container = $( '.container' )
     @$exposer = $('.exposer')
     @$exposees = $('.hidden')
+
+  afterEach -> @$fixture.remove()
 
   describe 'Initialising the plugin', ->
     it 'should be available on the jQuery object', ->
@@ -64,9 +80,11 @@ describe 'jQuery.exposer', ->
 
   describe 'Clicking an exposer when you have multiple instances on the page', ->
     beforeEach ->
-      loadFixtures 'jquery_exposer_fixture.html', 'jquery_exposer_fixture.html'
+      @$fixture2 = $(fixture).appendTo("body")
       @$containers = $( '.container' )
       @$containers.exposer().first().find( '.exposer' ).click()
+
+    afterEach -> @$fixture2.remove()
 
     it 'should expose hidden elements in the first container', ->
       expect( @$containers.first().find( '.hidden' ).length ).toBe 0
