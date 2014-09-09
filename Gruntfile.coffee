@@ -3,9 +3,7 @@ module.exports = (grunt) ->
     coffee:
       build:
         files:
-          "jquery.exposer.js": "jquery.exposer.js.coffee"
-      buildTest:
-        files:
+          "jquery.exposer.js": "jquery.exposer.js.coffee",
           "jquery.exposer_spec.js": "jquery.exposer_spec.js.coffee"
 
     jasmine:
@@ -16,9 +14,11 @@ module.exports = (grunt) ->
           vendor:
             "node_modules/jquery/dist/jquery.js"
 
+    clean: ["jquery.exposer_spec.js"]
 
   grunt.loadNpmTasks("grunt-contrib-coffee")
   grunt.loadNpmTasks('grunt-contrib-jasmine')
+  grunt.loadNpmTasks('grunt-contrib-clean')
 
-  grunt.registerTask("default", ["coffee:build"])
-  grunt.registerTask("test", ["coffee:buildTest","jasmine"])
+  grunt.registerTask("default", ["coffee:build","jasmine", "clean"])
+
