@@ -14,7 +14,7 @@ module.exports = (grunt) ->
         options:
           specs: 'jquery.exposer_spec.js'
           vendor:
-            "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+            "node_modules/jquery/dist/jquery.js"
 
 
   grunt.loadNpmTasks("grunt-contrib-coffee")
