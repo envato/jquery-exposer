@@ -13,7 +13,7 @@ Instantiate the plugin on an element that is a common parent of the exposer & ex
 
 #### Options
 
-* `exposer` - element to destroy (default `.exposer`)
+* `exposer` - element to bind the action to (default `.exposer`)
 * `exposeeClass` - class name to remove (default `.hidden`)
 
 
