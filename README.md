@@ -19,7 +19,7 @@ Instantiate the plugin on an element that is a common parent of the exposer & ex
 
 ```
 $(element).exposer({
-  exposer: '.item-faq-form__exposer'
+  exposer: '.item-faq-form__exposer',
   exposeeClass: 'js-hidden'
 })
 ```
