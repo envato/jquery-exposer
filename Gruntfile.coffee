@@ -16,9 +16,14 @@ module.exports = (grunt) ->
 
     clean: ["jquery.exposer_spec.js"]
 
+    watch:
+      files: ["jquery.exposer.js.coffee", "jquery.exposer_spec.js.coffee"],
+      tasks: ["coffee:build","jasmine", "clean"]
+
   grunt.loadNpmTasks("grunt-contrib-coffee")
   grunt.loadNpmTasks('grunt-contrib-jasmine')
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask("default", ["coffee:build","jasmine", "clean"])
+  grunt.registerTask("default", ["watch"])
 

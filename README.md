@@ -28,4 +28,4 @@ $(element).exposer({
 
 * `npm install`
 
-run `grunt` to compile the CoffeeScript and run the tests
+run `grunt` to watch for files for changes and run the CoffeeScript compilation and tests 
