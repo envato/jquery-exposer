@@ -44,11 +44,16 @@ describe 'jQuery.exposer', ->
       @$container.exposer()
       expect( @$container.data( 'plugin_exposer' ).defaults.destroyParent ).toBeFalsy()
 
+    it 'should not override the targets parent by default', ->
+      @$container.exposer()
+      expect( @$container.data( 'plugin_exposer' ).defaults.parent ).toBeFalsy()
+
     it 'should override the defaults with custom options', ->
       customOptions =
         exposer: '.myExposer'
         exposeeClass: 'myThingThatNeedsExposing'
         destroyParent: true
+        parent: '.myParentElement'
 
       @$container.exposer customOptions
       expect( @$container.data( 'plugin_exposer' ).options ).toEqual customOptions
