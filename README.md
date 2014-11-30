@@ -25,6 +25,7 @@ $(element).exposer({
   exposeeClass: 'js-hidden'
 })
 ```
+##### Example with parent Options
 
 ```
 $(element).exposer({
