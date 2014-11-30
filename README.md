@@ -15,12 +15,24 @@ Instantiate the plugin on an element that is a common parent of the exposer & ex
 
 * `exposer` - element to bind the action to (default `.exposer`)
 * `exposeeClass` - class name to remove (default `.hidden`)
+* `destroyParent` - flag to destroy the target element's parent (default `false`)
+* `parent` - element to remove instead of direct parent when you need more control, requires `destoryParent : true` (default `false`)
 
 
 ```
 $(element).exposer({
   exposer: '.item-faq-form__exposer',
   exposeeClass: 'js-hidden'
+})
+```
+##### Example with parent Options
+
+```
+$(element).exposer({
+  exposer: '.item-faq-form__exposer',
+  exposeeClass: 'js-hidden'
+  destroyParent: true,
+  parent: '.js-item-container'
 })
 ```
 

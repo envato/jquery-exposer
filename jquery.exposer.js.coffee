@@ -9,13 +9,15 @@ Exposer::defaults =
   exposer: '.exposer'
   exposeeClass: 'hidden'
   destroyParent: false
+  parent: false
 
 Exposer::init = ->
   @$element.on 'click.exposer', @options.exposer, ( event ) =>
     $( event.delegateTarget ).find( '.' + @options.exposeeClass ).removeClass( @options.exposeeClass )
 
     if @options.destroyParent
-      $( event.target ).parent().remove()
+      $parentElement = if @options.parent then $( @options.parent ) else $( event.target ).parent()
+      $parentElement.remove()
     else
       $( event.target ).remove()
 

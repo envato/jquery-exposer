@@ -1,6 +1,6 @@
 describe 'jQuery.exposer', ->
   fixture = "
-      <div class='container'>
+      <div class='js-parent container'>
         <b class='visible'>foo</b>
         <b class='visible'>foo</b>
 
@@ -44,11 +44,16 @@ describe 'jQuery.exposer', ->
       @$container.exposer()
       expect( @$container.data( 'plugin_exposer' ).defaults.destroyParent ).toBeFalsy()
 
+    it 'should not override the targets parent by default', ->
+      @$container.exposer()
+      expect( @$container.data( 'plugin_exposer' ).defaults.parent ).toBeFalsy()
+
     it 'should override the defaults with custom options', ->
       customOptions =
         exposer: '.myExposer'
         exposeeClass: 'myThingThatNeedsExposing'
         destroyParent: true
+        parent: '.myParentElement'
 
       @$container.exposer customOptions
       expect( @$container.data( 'plugin_exposer' ).options ).toEqual customOptions
@@ -77,6 +82,18 @@ describe 'jQuery.exposer', ->
 
     it 'should destroy the exposers parent', ->
       expect( $( '.exposer-parent' ).length ).toBe 0
+
+
+  describe 'Clicking an exposer with the destroyParent option and a parent option', ->
+    beforeEach ->
+      @$container.exposer( { destroyParent: true, parent: '.js-parent'} )
+      @$exposer.click()
+
+    it 'should expose hidden elements', ->
+      expect( @$exposees.hasClass 'hidden' ).toBeFalsy()
+
+    it 'should destroy the exposers parent', ->
+      expect( $( '.js-parent' ).length ).toBe 0
 
   describe 'Clicking an exposer when you have multiple instances on the page', ->
     beforeEach ->
