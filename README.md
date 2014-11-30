@@ -15,8 +15,8 @@ Instantiate the plugin on an element that is a common parent of the exposer & ex
 
 * `exposer` - element to bind the action to (default `.exposer`)
 * `exposeeClass` - class name to remove (default `.hidden`)
-* `destroyParent` - flag to destroy the target elements parent (default `false`)
-* `parent` - element to remove when you need more control, requires `destoryParent : true` (default `false`)
+* `destroyParent` - flag to destroy the target element's parent (default `false`)
+* `parent` - element to remove instead of direct parent when you need more control, requires `destoryParent : true` (default `false`)
 
 
 ```
