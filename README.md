@@ -26,6 +26,15 @@ $(element).exposer({
 })
 ```
 
+```
+$(element).exposer({
+  exposer: '.item-faq-form__exposer',
+  exposeeClass: 'js-hidden'
+  destroyParent: true,
+  parent: '.js-item-container'
+})
+```
+
 ### Development
 
 * `npm install`
